@@ -1,0 +1,109 @@
+.header-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 12px;
+}
+
+.hamburger-menu {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.logo-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    width: 100px;
+    height: 30px;
+}
+
+.toolbox-wrapper {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.search-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+}
+
+.header-wrapper .logo-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-wrapper .toolbox-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    font-size: 20px;
+    gap: 24px;
+}
+
+.header-wrapper .toolbox-wrapper p, .header-wrapper .toolbox-wrapper span i{
+    display: none;
+}
+
+.header-wrapper .toolbox-wrapper .myaccount-wrapper{
+    display: none;
+}
+
+.search-wrapper {
+    display: flex;
+}
+
+.search-wrapper input,
+.search-wrapper button {
+    box-sizing: border-box;
+    border: 1px solid var(--color-primary);
+}
+
+.search-wrapper input {
+    flex: 1;
+    padding: 10px;
+    border-right: none;
+    border-radius: 14px 0 0 14px;
+    font-size: 16px;
+    color: var(--color-text-main);
+}
+
+.search-wrapper button {
+    padding: 6px 10px;
+    border-left: none;
+    background: transparent;
+    border-radius: 0 14px 14px 0;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.search-wrapper:focus-within input,
+.search-wrapper:focus-within button {
+    border-color: var(--color-secondary);
+}
+
+.search-wrapper:focus-within input {
+    outline: none;
+}
+
+.search-wrapper input,
+.search-wrapper button {
+    transition: border-color 0.15s ease;
+}
+
+.search-wrapper:hover input,
+.search-wrapper:hover button {
+    border-color: var(--color-secondary);
+}
+
+.header-wrapper i{
+    color: var(--color-primary);
+}
