@@ -4,7 +4,8 @@
     grid-template-rows: auto auto;
     align-items: center;
     padding: 6px 12px;
-    gap: 12px;
+    gap: 24px;
+    min-height: 70px;
 }
 
 .hamburger-menu {
@@ -51,6 +52,27 @@
 
 .header-wrapper .toolbox-wrapper p, .header-wrapper .toolbox-wrapper span i{
     display: none;
+}
+
+.header-wrapper .toolbox-wrapper a, .header-wrapper .toolbox-wrapper span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 16px;
+    color: var(--color-text-main);
+}
+
+.header-wrapper .toolbox-wrapper a{
+    gap: 12px;
+}
+
+.header-wrapper .toolbox-wrapper a i{
+    font-size: 22px;
+}
+
+.header-wrapper .toolbox-wrapper span i{
+    font-size: 10px;
 }
 
 .header-wrapper .toolbox-wrapper .myaccount-wrapper{
@@ -106,4 +128,90 @@
 
 .header-wrapper i{
     color: var(--color-primary);
+}
+
+@media (min-width: 760px) {
+    .header-wrapper {
+        grid-template-columns: auto auto 1fr auto;
+        grid-template-rows: auto;
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .logo-wrapper {
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .search-wrapper {
+        grid-column: 3;
+        grid-row: 1;
+        width: 100%;
+        justify-self: start;
+    }
+
+    .toolbox-wrapper {
+        grid-column: 4;
+    }
+
+    .logo-wrapper{
+        width: 135px;
+        height: 40px;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+@media (min-width: 1000px){
+    .header-wrapper .toolbox-wrapper p, .header-wrapper .toolbox-wrapper span i{
+        display: block;
+    }
+
+    .header-wrapper .toolbox-wrapper .myaccount-wrapper{
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.menu-container {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.menu-panels {
+  display: flex;
+  height: 100%;
+  transition: transform 0.25s ease;
+}
+
+.menu-panel {
+  width: 100%;
+  padding: 16px;
+}
+
+.menu-panel button,
+.menu-panel a {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 16px;
 }
