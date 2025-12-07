@@ -8,7 +8,7 @@ function Header(){
 
     return(
         <header className='header-wrapper'>
-            {showMobileMenu ? <MobileMenu /> : ''}
+            {showMobileMenu ? <MobileMenu setShowMobileMenu={setShowMobileMenu} /> : ''}
             <div className='hamburger-menu'>
                 <i className="fa-solid fa-bars" onClick={() => setShowMobileMenu(prev => !prev)}></i>
             </div>

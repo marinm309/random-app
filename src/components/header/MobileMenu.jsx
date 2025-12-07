@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
-function MobileMenu() {
+function MobileMenu({ setShowMobileMenu }) {
+
     const MENU = {
         root: [
             { label: "Computer", next: "computer" },
@@ -18,44 +20,21 @@ function MobileMenu() {
         ],
     };
 
-    const [stack, setStack] = useState(["root"]);
-
-    const current = MENU[stack[stack.length - 1]];
-
-    const goForward = (key) => setStack([...stack, key]);
-    const goBack = () =>
-    setStack((s) => s.length > 1 ? s.slice(0, -1) : s);
+    const [stack, setStack] = useState('root');
 
     return (
-        <div className="menu-container">
-            {stack.length > 1 && (
-            <button className="menu-back" onClick={goBack}>
-                ← Back
-            </button>
-            )}
-
-            <div
-            className="menu-panels"
-            style={{ transform: `translateX(-${(stack.length - 1) * 100}%)` }}
-            >
-            {stack.map((key, i) => (
-                <div className="menu-panel" key={i}>
-                {MENU[key].map((item) =>
-                    item.next ? (
-                    <button
-                        key={item.label}
-                        onClick={() => goForward(item.next)}
-                    >
-                        {item.label} →
-                    </button>
-                    ) : (
-                    <a key={item.label} href={item.href}>
-                        {item.label}
-                    </a>
-                    )
+        <div className='menu-wrapper'>
+            <button className='close-btn' onClick={() => setShowMobileMenu(prev => !prev)}>X</button>
+            {stack != 'root' ? <button className='back-btn' onClick={() => setStack('root')}>{'<-'}Main Menu</button> : ''}
+            <div className='stack-wrapper'>
+                {MENU[stack].map(
+                    item => {
+                        return item.next ? 
+                        (<Link className='stack-item' key={item.label} to='' onClick={() => setStack(item.next)}>{item.label}</Link>)
+                        :
+                        (<Link className='stack-item' key={item.label} to={item.href}>{item.label}</Link>)
+                    }
                 )}
-                </div>
-            ))}
             </div>
         </div>
     );
